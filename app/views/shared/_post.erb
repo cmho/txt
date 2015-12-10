@@ -12,7 +12,7 @@
 	</div>
 	<div class="post-footer">
 		<div class="post-likes">
-			<b>Likes:</b> <%= post.likes.length %> <%= link_to "Like?", like_post_url(username: post.user.id, post_id: post.id), class: 'btn btn-xs btn-primary' %>
+			<b>Likes:</b> <%= post.likes.length %> <%= link_to "Like?", like_post_url(username: post.user.id, post_id: post.id), class: 'btn btn-xs btn-primary likebtn' %>
 		</div>
 	</div>
 </div>

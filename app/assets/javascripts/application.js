@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('.likebtn').click(function(e) {
+	e.preventDefault();
+	var url = $(this).attr('href');
+	
+});
