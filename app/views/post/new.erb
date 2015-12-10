@@ -1,0 +1,10 @@
+<%= form_tag :post do |f| %>
+	<div class="form-group">
+		<%= f.label :content %>
+		<%= f.text_area :content, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.hidden_field :user_id, session[:user] %>
+		<%= f.button "Post", type: 'submit', class: 'btn btn-primary' %>
+	</div>
+<% end %>
