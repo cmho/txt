@@ -5,6 +5,6 @@ class HomeController < ApplicationController
 		end
 
 		@user = User.find(id: session[:user])
-		@following = Follow.find(user_id: session[:user])
+		@posts = Post.where(user_id: @user.follows.collect {|x| x.following_id }).order(created_at: :desc).page(params[:page]).per(25)
 	end
 end
