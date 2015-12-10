@@ -1,0 +1,4 @@
+<h1><%= @user.display_name %> <span class="label label-default">@<%= @user.username %></span></h1>
+<% @posts.each do |post| %>
+	<%= render partial: 'shared/post', locals: {post: post} %>
+<% end %>

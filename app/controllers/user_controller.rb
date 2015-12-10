@@ -14,8 +14,8 @@ class UserController < ApplicationController
 	end
 
 	def show
-		@user = User.find(id: params[:id])
-		@posts = Post.find(user_id: params[:id])
+		@user = User.find_by_username(params[:username])
+		@posts = Post.where(user_id: @user.id).order(created_at: :desc)
 	end
 
 	def edit
