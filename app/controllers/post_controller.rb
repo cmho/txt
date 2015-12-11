@@ -1,10 +1,10 @@
 class PostController < ApplicationController
 	def show
-
+		@post = Post.find(params[:id])
 	end
 
 	def new
-		
+		@post = Post.new
 	end
 
 	def create
@@ -19,7 +19,15 @@ class PostController < ApplicationController
 	end
 
 	def destroy
+		@post = Post.find(params[:id])
+		@post.delete_all
+		redirect_to :root
+	end
 
+	def like
+		@like = Like.new(post_id: params[:post_id], user_id: session[:user])
+		@like.save!
+		redirect_to user_path(params[:username])
 	end
 
 	private

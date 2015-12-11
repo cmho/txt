@@ -1,0 +1,9 @@
+<div class="col-md-8 col-md-offset-2">
+	<%= link_to "< Back to Profile", user_path(@user.username) %>
+	<h2>@<%= @user.username %> Follows</h2>
+	<ul>
+	<% @followed_users.each do |following| %>
+		<li><strong><%= following.display_name %></strong> <%= link_to "@#{following.username}", user_path(following.username) %></li>
+	<% end %>
+	</ul>
+</div>

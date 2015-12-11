@@ -1,4 +1,7 @@
-<h1><%= @user.display_name %> <span class="label label-default">@<%= @user.username %></span></h1>
-<% @posts.each do |post| %>
-	<%= render partial: 'shared/post', locals: {post: post} %>
-<% end %>
+<div class="col-md-8 col-md-offset-2">
+	<h2><%= @user.display_name %> <span class="label label-default">@<%= @user.username %></span></h2>
+	<p><%= link_to "Follows", user_following_path(@user.username) %> &bull; <%= link_to "Followed By", user_followed_by_path(@user.username) %><% if session[:user].present? && !@following_user %> &bull; <%= link_to "Follow", user_follow_path(@user.username), class: 'btn btn-primary btn-xs' %><% elsif session[:user].present? && @following_user %> &bull; <%= link_to "Unfollow", user_unfollow_path(@user.username), class: 'btn btn-primary btn-xs' %><% end %></p>
+	<% @posts.each do |post| %>
+		<%= render partial: 'shared/post', locals: {post: post} %>
+	<% end %>
+</div>

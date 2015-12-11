@@ -14,21 +14,22 @@ Rails.application.routes.draw do
   get 'register' => 'user#new', as: :register
   post 'register' => 'user#create'
 
-  get 'u/:username' => 'user#show', as: :user
-  get 'u/:username/following' => 'user#following', as: :user_following
-  get 'u/:username/followed_by' => 'user#followed', as: :user_followed_by
-  post 'u/:username/follow' => 'user#follow', as: :user_follow
-  post 'u/:username/unfollow' => 'user#unfollow', as: :user_unfollow
-
-  get 'u/:username/post/:post_id' => 'post#show', as: :post
   get 'update' => 'post#new', as: :new_post
-  post 'update' => 'post#create'
-  post 'u/:username/post/:post_id/like' => 'post#like', as: :like_post
-  post 'u/:username/post/:post_id/unlike' => 'post#unlike', as: :unlike_post
-  post 'u/:username/post/:post_id/delete' => 'post#destroy', as: :destroy_post
+  post 'update' => 'post#create', as: :posts
 
   get 'settings' => 'user#edit', as: :settings
   post 'settings' => 'user#update'
+
+  get 'u/:username' => 'user#show', as: :user
+  get 'u/:username/following' => 'user#following', as: :user_following
+  get 'u/:username/followed_by' => 'user#followed_by', as: :user_followed_by
+  get 'u/:username/follow' => 'user#follow', as: :user_follow
+  get 'u/:username/unfollow' => 'user#unfollow', as: :user_unfollow
+
+  get 'u/:username/post/:post_id' => 'post#show', as: :post
+  post 'u/:username/post/:post_id/like' => 'post#like', as: :like_post
+  post 'u/:username/post/:post_id/unlike' => 'post#unlike', as: :unlike_post
+  post 'u/:username/post/:post_id/delete' => 'post#destroy', as: :destroy_post
 
   
 

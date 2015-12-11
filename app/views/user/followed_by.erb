@@ -1,0 +1,8 @@
+<div class="col-md-8 col-md-offset-2">
+	<h2>Following @<%= @user.username %></h2>
+	<ul>
+	<% @followers.each do |follower| %>
+		<li><strong><%= follower.display_name %></strong> <%= link_to "@#{follower.username}", user_path(follower.username) %></li>
+	<% end %>
+	</ul>
+</div>
