@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   get 'u/:username/unfollow' => 'user#unfollow', as: :user_unfollow
 
   get 'u/:username/post/:post_id' => 'post#show', as: :post
-  post 'u/:username/post/:post_id/like' => 'post#like', as: :like_post
-  post 'u/:username/post/:post_id/unlike' => 'post#unlike', as: :unlike_post
-  post 'u/:username/post/:post_id/delete' => 'post#destroy', as: :destroy_post
+  get 'u/:username/post/:post_id/like' => 'post#like', as: :like_post
+  get 'u/:username/post/:post_id/unlike' => 'post#unlike', as: :unlike_post
+  get 'u/:username/post/:post_id/delete' => 'post#destroy', as: :destroy_post
 
   
 

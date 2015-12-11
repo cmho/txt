@@ -19,14 +19,20 @@ class PostController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
-		@post.delete_all
+		@post = Post.find(params[:post_id])
+		Post.delete(@post.id)
 		redirect_to :root
 	end
 
 	def like
 		@like = Like.new(post_id: params[:post_id], user_id: session[:user])
 		@like.save!
+		redirect_to user_path(params[:username])
+	end
+
+	def unlike
+		@like = Like.find_by_post_id_and_user_id(params[:post_id], session[:user])
+		Like.delete(@like.id)
 		redirect_to user_path(params[:username])
 	end
 

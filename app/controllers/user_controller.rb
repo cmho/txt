@@ -18,7 +18,7 @@ class UserController < ApplicationController
 		@user = User.find_by_username(params[:username])
 		if session[:user]
 			@current_user = User.find(session[:user])
-			if @current_user.present? && @current_user.follows.collect {|x| x.following_id }.include?(@user.id)
+			if @current_user.present? && @current_user.follows.collect {|x| x.following_id }.include?(@current_user.id)
 				@following_user = true
 			else
 				@following_user = false
@@ -70,7 +70,7 @@ class UserController < ApplicationController
 	def unfollow
 		@user = User.find_by_username(params[:username])
 		@follow = Follow.where(user_id: session[:user], following_id: @user.id)
-		@follow.delete_all
+		Follow.delete(@follow.id)
 		redirect_to user_path(@user.username)
 	end
 
