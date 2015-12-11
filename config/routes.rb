@@ -31,8 +31,6 @@ Rails.application.routes.draw do
   get 'u/:username/post/:post_id/unlike' => 'post#unlike', as: :unlike_post
   get 'u/:username/post/:post_id/delete' => 'post#destroy', as: :destroy_post
 
-  
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

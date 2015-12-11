@@ -1,6 +1,6 @@
 <div class="col-md-6 col-md-offset-3">
 	<h1>Account Settings</h1>
-	<%= form_for @user, url: {action: 'update_user'} do |f| %>
+	<%= form_for @user, url: {action: 'update'}, method: 'post' do |f| %>
 		<div class="form-group">
 			<%= f.label :display_name %>
 			<%= f.text_field :display_name, class: 'form-control' %>

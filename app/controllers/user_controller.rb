@@ -36,15 +36,11 @@ class UserController < ApplicationController
 
 	def update
 		@user = User.find(session[:user])
-		puts "break 1"
 		if @user.update_attributes!(user_params)
-			puts "break 2"
 			flash[:success] = "Your settings were updated."
 		else
-			puts "break 3"
 			flash[:error] = "There was an error updating your settings."
 		end
-		puts "break 4"
 		redirect_to settings_path
 	end
 
